@@ -6,7 +6,7 @@ class RealEstate(models.Model):
     _description = "Real Estate advertisement"
     _order = 'id desc'
 
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(string="Name", required=True, size=100)
     description = fields.Text(string="Description", required=False)
     postcode = fields.Char(string="Postcode", required=False)
     date_availability = fields.Date(

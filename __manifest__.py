@@ -18,6 +18,8 @@
         ### Start Add: ขั้นตอนที่ 3: การตั้งค่าความปลอดภัย (Security Configuration)
         'security/ir.model.access.csv',
         ### End Add: ขั้นตอนที่ 3: การตั้งค่าความปลอดภัย (Security Configuration)
+        ### Initialization Data
+        'data/property_data.xml',
     ],
     
     'demo': [],

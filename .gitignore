@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Odoo specific
+*.pyc
+*.pyo
+.DS_Store
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# Database
+*.db
+*.sqlite
+
+# Environment variables
+.env
+
+# Backup files
+*~
+*.bak
+*.orig

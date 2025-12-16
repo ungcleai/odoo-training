@@ -6,7 +6,7 @@
         <field name="model">y.realestate.property</field>
         <field name="arch" type="xml">
             <list string="Property" sample="1">
-                <field name="name"/>
+                <field name="name" width="200px"/>
                 <field name="date_availability"/>
                 <field name="expected_price"/>
                 <field name="selling_price"/>
