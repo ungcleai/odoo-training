@@ -48,6 +48,12 @@
                                 <field name="garden_area" string="Garden Area (sqm)" invisible="garden == False"/>
                                 <field name="garden_orientation" string="Garden Orientation" invisible="garden == False"/>
                             </group>
+                            <!-- Start add at 20250110-1450: Add Property Status group with active and state fields -->
+                            <group string="Property Status">
+                                <field name="active"/>
+                                <field name="state"/>
+                            </group>
+                            <!-- End add at 20250110-1450: Add Property Status group with active and state fields -->
                         </page>
                     </notebook>
                 </sheet>
@@ -61,8 +67,15 @@
         <field name="model">y.realestate.property</field>
         <field name="arch" type="xml">
             <search>
+                <!-- Start add at 20250110-1520: Add state field after postcode -->
                 <field name="name"/>
                 <field name="postcode"/>
+                <field name="state" string="Status"/>
+                <!-- End add at 20250110-1520: Add state field after postcode -->
+                <!-- Start add at 20250110-1520: Add Archived and State filters -->
+                <filter name="Inactive" string="Archived" domain="[('active', '=', False)]"/>
+                <filter name="group_by_state" string="State" context="{'group_by': 'state'}"/>
+                <!-- End add at 20250110-1520: Add Archived and State filters -->
             </search>
         </field>
     </record>

@@ -1,0 +1,1 @@
+I want to create specific agents to add new fields to existing views base on odoo development standard steps. I wan to pass new fields information that may include one or more fields. Help me to create this agent base on Amazon Q for development guide line.
