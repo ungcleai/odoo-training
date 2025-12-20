@@ -36,4 +36,13 @@
         action="action_property_type"
         sequence="20"/>
     <!-- End add at 20241220-1455: Add Property Types menu with action -->
+
+    <!-- Start add at 20241220-1448: Add Property Tags menu with action -->
+    <menuitem
+        id="menu_property_tag"
+        name="Property Tags"
+        parent="menu_real_estate_settings"
+        action="action_property_tag"
+        sequence="30"/>
+    <!-- End add at 20241220-1448: Add Property Tags menu with action -->
 </odoo>

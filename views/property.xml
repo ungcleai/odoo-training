@@ -33,6 +33,9 @@
                             <!-- Start add at 20250111-1500: Add property_type_id field -->
                             <field name="property_type_id" string="Property type"/>
                             <!-- End add at 20250111-1500: Add property_type_id field -->
+                            <!-- Start add at 20241220-1505: Add property_tag_id field -->
+                            <field name="property_tag_id" string="Property Tags" widget="many2many_tags"/>
+                            <!-- End add at 20241220-1505: Add property_tag_id field -->
                         </group>
                         <group>
                             <field name="expected_price" string="Expected Price"/>
