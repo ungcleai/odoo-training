@@ -2,6 +2,12 @@
 
 ## Core Odoo Architecture Principles
 
+### 0. Model Naming Convention (CRITICAL)
+- **MANDATORY**: All custom model class names MUST start with `y_` prefix
+- This prevents confusion with Odoo standard model names
+- Example: `y_realestate_property`, `y_sale_order`, `y_product_template`
+- **DO NOT** create models without the `y_` prefix
+
 ### 1. MVC Pattern
 - **Models**: Business logic in `models/` directory
 - **Views**: UI definitions in `views/` directory  

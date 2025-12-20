@@ -47,6 +47,12 @@ class RealEstatePropertyExtension(models.Model):
         default=True,
         help="Manage the status of the property usage"
     )
+    ### Start add at 20250111-1455: Add property_type_id Many2one field ###
+    property_type_id = fields.Many2one(
+        'y.realestate.property.type',
+        string="Property Type"
+    )
+    ### End add at 20250111-1455: Add property_type_id Many2one field ###
     state = fields.Selection(
         string="State",
         selection=[

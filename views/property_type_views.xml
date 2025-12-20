@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Start add at 20241220-1450: Create property type tree and form views -->
+        <!-- Tree View -->
+        <record id="view_property_type_tree" model="ir.ui.view">
+            <field name="name">y.realestate.property.type.tree</field>
+            <field name="model">y.realestate.property.type</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name" string="Sequence Type" width="200px"/>
+                    <field name="sequence" string="Sequence" width="100px"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_property_type_form" model="ir.ui.view">
+            <field name="name">y.realestate.property.type.form</field>
+            <field name="model">y.realestate.property.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" string="Type Name" required="1"/>
+                            <field name="sequence" string="Sequence"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- End add at 20241220-1450: Create property type tree and form views -->
+    </data>
+</odoo>

@@ -30,6 +30,9 @@
                         <group>
                             <field name="postcode" string="Postcode"/>
                             <field name="date_availability" string="Available From"/>
+                            <!-- Start add at 20250111-1500: Add property_type_id field -->
+                            <field name="property_type_id" string="Property type"/>
+                            <!-- End add at 20250111-1500: Add property_type_id field -->
                         </group>
                         <group>
                             <field name="expected_price" string="Expected Price"/>
