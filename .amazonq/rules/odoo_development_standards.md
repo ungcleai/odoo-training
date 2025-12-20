@@ -8,12 +8,20 @@
 - Example: `y_realestate_property`, `y_sale_order`, `y_product_template`
 - **DO NOT** create models without the `y_` prefix
 
-### 1. MVC Pattern
+### 1. Odoo 19 View Terminology (CRITICAL)
+- **MANDATORY**: In Odoo 19, use "list" instead of "tree" for list views
+- **View XML Element**: Use `<list>` tag, NOT `<tree>` tag
+- **Action view_mode**: Use "list" (e.g., "list,form"), NOT "tree"
+- **View Type Reference**: Always refer to it as "list view", NOT "tree view"
+- Example: `<field name="view_mode">list,form</field>`
+- **DO NOT** use "tree" terminology in Odoo 19 development
+
+### 2. MVC Pattern
 - **Models**: Business logic in `models/` directory
 - **Views**: UI definitions in `views/` directory  
 - **Controllers**: Web controllers in `controllers/` directory
 
-### 2. Module Structure
+### 3. Module Structure
 ```
 module_name/
 ├── __init__.py
@@ -27,7 +35,7 @@ module_name/
 └── wizard/
 ```
 
-### 3. Model Development Rules
+### 4. Model Development Rules
 - Use `models.Model` for persistent data
 - Use `models.TransientModel` for wizards
 - Always define `_name`, `_description`
@@ -37,24 +45,24 @@ module_name/
 - Use `@api.constrains` for validation
 - Follow naming: snake_case for fields, CamelCase for classes
 
-### 4. View Development Rules
-- Tree views: Use `<list>` with proper field widths
+### 5. View Development Rules
+- List views: Use `<list>` with proper field widths (NOT `<tree>` in Odoo 19)
 - Form views: Use `<form>` with `<sheet>`, `<group>`, `<notebook>`
 - Search views: Include searchable fields and filters
 - Always define view inheritance with `inherit_id`
 - Use proper field attributes: `string`, `required`, `readonly`, `invisible`
 
-### 5. Security Rules
+### 6. Security Rules
 - Define access rights in `security/ir.model.access.csv`
 - Use record rules for row-level security
 - Format: `id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink`
 
-### 6. Data Files
+### 7. Data Files
 - Use `<data noupdate="1">` for demo/initial data
 - Use proper XML structure with `<record>` elements
 - Reference other records with `ref()` function
 
-### 7. Manifest Requirements
+### 8. Manifest Requirements
 ```python
 {
     'name': 'Module Name',
@@ -70,20 +78,20 @@ module_name/
 }
 ```
 
-### 8. Field Constraints & Validation
+### 9. Field Constraints & Validation
 - Use `size` parameter for Char fields
 - Use `digits` parameter for Float fields
 - Use `selection` for dropdown options
 - Use `default` for default values
 - Use `copy=False` for unique fields
 
-### 9. Odoo ORM Methods
+### 10. Odoo ORM Methods
 - `create()`, `write()`, `unlink()` for CRUD operations
 - `search()`, `browse()` for data retrieval
 - `filtered()`, `mapped()`, `sorted()` for recordset operations
 - Use `sudo()` carefully for permission elevation
 
-### 10. Best Practices
+### 11. Best Practices
 - Keep methods small and focused
 - Use meaningful variable names
 - Add proper docstrings
@@ -95,7 +103,7 @@ module_name/
 ## Development Workflow
 1. Define model structure first
 2. Create security access rules
-3. Build views (tree → form → search)
+3. Build views (list → form → search)
 4. Add menu items and actions
 5. Create initialization data
 6. Test functionality

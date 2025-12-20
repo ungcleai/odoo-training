@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_y_realestate_property,y.realestate.property,model_y_realestate_property,base.group_user,1,1,1,1
+access_y_realestate_property_type,y.realestate.property.type,model_y_realestate_property_type,base.group_user,1,1,1,1
