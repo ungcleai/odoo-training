@@ -53,6 +53,13 @@ class RealEstatePropertyExtension(models.Model):
         string="Property Type"
     )
     ### End add at 20250111-1455: Add property_type_id Many2one field ###
+    ### Start add at 20241220-1450: Add offer_ids One2many field ###
+    offer_ids = fields.One2many(
+        'y.realestate.property.offer',
+        'property_id',
+        string="Offers"
+    )
+    ### End add at 20241220-1450: Add offer_ids One2many field ###
     ### Start add at 20241220-1502: Add property_tag_id Many2many field ###
     property_tag_id = fields.Many2many(
         'y.realestate.property.tag',

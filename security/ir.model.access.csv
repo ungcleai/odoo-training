@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_y_realestate_property,y.realestate.property,model_y_realestate_property,base.group_user,1,1,1,1
 access_y_realestate_property_type,y.realestate.property.type,model_y_realestate_property_type,base.group_user,1,1,1,1
 access_y_realestate_property_tag,y.realestate.property.tag,model_y_realestate_property_tag,base.group_user,1,1,1,1
+access_y_realestate_property_offer,y.realestate.property.offer,model_y_realestate_property_offer,base.group_user,1,1,1,1
