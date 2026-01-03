@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import UserError
 from datetime import datetime, timedelta
 
 class RealEstate(models.Model):
@@ -35,6 +36,17 @@ class RealEstate(models.Model):
         default='north',
         help="Select the orientation of the garden."
     )
+    
+    ### Start add at 20250112-1045: Add _onchange_garden method ###
+    @api.onchange('garden')
+    def _onchange_garden(self):
+        if self.garden:
+            self.garden_area = 10
+            self.garden_orientation = 'north'
+        else:
+            self.garden_area = 0
+            self.garden_orientation = False
+    ### End add at 20250112-1045: Add _onchange_garden method ###
 #### -------------------------------------------------- ####
 
 ### Start add at 20250110-1445: Add active and state fields for property status management ###
@@ -109,4 +121,20 @@ class RealEstatePropertyExtension(models.Model):
         for record in self:
             record.best_price = max(record.offer_ids.mapped('price') or [0])
     ### End add at 20250112-1010: Add _compute_best_price method ###
+    
+    ### Start add at 20250112-1100: Add action_cancel method ###
+    def action_cancel(self):
+        for record in self:
+            if record.state == 'sold':
+                raise UserError("A sold property cannot be canceled.")
+            record.state = 'canceled'
+    ### End add at 20250112-1100: Add action_cancel method ###
+    
+    ### Start add at 20250112-1105: Add action_set_sold method ###
+    def action_set_sold(self):
+        for record in self:
+            if record.state == 'canceled':
+                raise UserError("A canceled property cannot be set as sold.")
+            record.state = 'sold'
+    ### End add at 20250112-1105: Add action_set_sold method ###
 ### End add at 20250110-1445: Add active and state fields for property status management ###

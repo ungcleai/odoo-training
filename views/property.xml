@@ -21,7 +21,14 @@
         <field name="model">y.realestate.property</field>
         <field name="arch" type="xml">
             <form string="Property">
-                <header></header>
+                <header>
+                    <!-- Start add at 20250112-1110: Add Sold button -->
+                    <button name="action_set_sold" type="object" string="Sold" class="btn-primary" invisible="state in ('sold', 'canceled')"/>
+                    <!-- End add at 20250112-1110: Add Sold button -->
+                    <!-- Start add at 20250112-1115: Add Cancel button -->
+                    <button name="action_cancel" type="object" string="Cancel" class="btn-secondary" invisible="state in ('sold', 'canceled')"/>
+                    <!-- End add at 20250112-1115: Add Cancel button -->
+                </header>
                 <sheet>
                     <h1>
                         <field name="name"/>
@@ -77,6 +84,12 @@
                                     <field name="validity"/>
                                     <field name="date_deadline"/>
                                     <!-- End add at 20250112-1035: Add validity and date_deadline fields -->
+                                    <!-- Start add at 20250112-1140: Add action_accept button -->
+                                    <button name="action_accept" type="object" string="Accept Offer" class="btn-success" states="new" icon="fa-check" attrs="{'invisible': [('status', '!=', 'new')]}"/>
+                                    <!-- End add at 20250112-1140: Add action_accept button -->
+                                    <!-- Start add at 20250112-1145: Add action_refuse button -->
+                                    <button name="action_refuse" type="object" string="Refuse Offer" class="btn-danger" states="new" icon="fa-times" attrs="{'invisible': [('status', '!=', 'new')]}"/>
+                                    <!-- End add at 20250112-1145: Add action_refuse button -->
                                     <field name="status"/>
                                 </list>
                                 <form>
@@ -87,6 +100,12 @@
                                         <field name="validity"/>
                                         <field name="date_deadline"/>
                                         <!-- End add at 20250112-1035: Add validity and date_deadline fields -->
+                                        <!-- Start add at 20250112-1140: Add action_accept button -->
+                                        <button name="action_accept" type="object" string="Accept Offer" class="btn-success" states="new" icon="fa-check" attrs="{'invisible': [('status', '!=', 'new')]}"/>
+                                        <!-- End add at 20250112-1140: Add action_accept button -->
+                                        <!-- Start add at 20250112-1145: Add action_refuse button -->
+                                        <button name="action_refuse" type="object" string="Refuse Offer" class="btn-danger" states="new" icon="fa-times" attrs="{'invisible': [('status', '!=', 'new')]}"/>
+                                        <!-- End add at 20250112-1145: Add action_refuse button -->
                                         <field name="status"/>
                                     </group>
                                 </form>
