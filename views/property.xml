@@ -73,12 +73,20 @@
                                 <list>
                                     <field name="price"/>
                                     <field name="partner_id"/>
+                                    <!-- Start add at 20250112-1035: Add validity and date_deadline fields -->
+                                    <field name="validity"/>
+                                    <field name="date_deadline"/>
+                                    <!-- End add at 20250112-1035: Add validity and date_deadline fields -->
                                     <field name="status"/>
                                 </list>
                                 <form>
                                     <group>
                                         <field name="price"/>
                                         <field name="partner_id"/>
+                                        <!-- Start add at 20250112-1035: Add validity and date_deadline fields -->
+                                        <field name="validity"/>
+                                        <field name="date_deadline"/>
+                                        <!-- End add at 20250112-1035: Add validity and date_deadline fields -->
                                         <field name="status"/>
                                     </group>
                                 </form>
