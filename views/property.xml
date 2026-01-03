@@ -39,6 +39,9 @@
                         </group>
                         <group>
                             <field name="expected_price" string="Expected Price"/>
+                            <!-- Start add at 20250112-1015: Add best_price field -->
+                            <field name="best_price" string="Best Price"/>
+                            <!-- End add at 20250112-1015: Add best_price field -->
                             <field name="selling_price" string="Selling Price"/>
                         </group>
                     </group>
@@ -53,6 +56,9 @@
                                 <field name="garden" string="Garden"/>
                                 <field name="garden_area" string="Garden Area (sqm)" invisible="garden == False"/>
                                 <field name="garden_orientation" string="Garden Orientation" invisible="garden == False"/>
+                                <!-- Start add at 20250112-1005: Add total_area field -->
+                                <field name="total_area" string="Total Area (sqm)"/>
+                                <!-- End add at 20250112-1005: Add total_area field -->
                             </group>
                             <!-- Start add at 20250110-1450: Add Property Status group with active and state fields -->
                             <group string="Property Status">

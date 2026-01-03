@@ -1,0 +1,17 @@
+<!-- List View Template (Odoo 19) -->
+<!-- IMPORTANT: Use <list> tag, NOT <tree> in Odoo 19 -->
+
+<odoo>
+    <record id="{VIEW_ID}_list" model="ir.ui.view">
+        <field name="name">{MODEL_NAME}.list</field>
+        <field name="model">{MODEL_NAME}</field>
+        <field name="arch" type="xml">
+            <list string="{MODEL_DESCRIPTION}">
+                <field name="name"/>
+                <!-- Add more fields here -->
+                <!-- <field name="date"/> -->
+                <!-- <field name="state"/> -->
+            </list>
+        </field>
+    </record>
+</odoo>

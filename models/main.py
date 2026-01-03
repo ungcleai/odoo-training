@@ -66,6 +66,21 @@ class RealEstatePropertyExtension(models.Model):
         string="Property Tags"
     )
     ### End add at 20241220-1502: Add property_tag_id Many2many field ###
+    ### Start add at 20250112-1000: Add total_area computed field ###
+    total_area = fields.Float(
+        string="Total Area (sqm)",
+        compute="_compute_total_area",
+        store=True,
+        help="Show Property Total Area"
+    )
+    ### End add at 20250112-1000: Add total_area computed field ###
+    ### Start add at 20250112-1010: Add best_price computed field ###
+    best_price = fields.Float(
+        string="Best Offer Price",
+        compute="_compute_best_price",
+        store=True
+    )
+    ### End add at 20250112-1010: Add best_price computed field ###
     state = fields.Selection(
         string="State",
         selection=[
@@ -80,4 +95,18 @@ class RealEstatePropertyExtension(models.Model):
         copy=False,
         help="The current state of the property."
     )
+    
+    ### Start add at 20250112-1000: Add _compute_total_area method ###
+    @api.depends('living_area', 'garden_area')
+    def _compute_total_area(self):
+        for record in self:
+            record.total_area = (record.living_area or 0) + (record.garden_area or 0)
+    ### End add at 20250112-1000: Add _compute_total_area method ###
+    
+    ### Start add at 20250112-1010: Add _compute_best_price method ###
+    @api.depends('offer_ids.price')
+    def _compute_best_price(self):
+        for record in self:
+            record.best_price = max(record.offer_ids.mapped('price') or [0])
+    ### End add at 20250112-1010: Add _compute_best_price method ###
 ### End add at 20250110-1445: Add active and state fields for property status management ###

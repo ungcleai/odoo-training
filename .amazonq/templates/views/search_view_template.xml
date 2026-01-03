@@ -1,0 +1,22 @@
+<!-- Search View Template -->
+
+<odoo>
+    <record id="{VIEW_ID}_search" model="ir.ui.view">
+        <field name="name">{MODEL_NAME}.search</field>
+        <field name="model">{MODEL_NAME}</field>
+        <field name="arch" type="xml">
+            <search string="{MODEL_DESCRIPTION}">
+                <field name="name"/>
+                <!-- Add searchable fields -->
+                
+                <!-- Filters -->
+                <filter string="Active" name="active" domain="[('active','=',True)]"/>
+                
+                <!-- Group By -->
+                <group expand="0" string="Group By">
+                    <!-- <filter string="Status" name="group_status" context="{'group_by':'state'}"/> -->
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

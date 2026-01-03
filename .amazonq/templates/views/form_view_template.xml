@@ -1,0 +1,32 @@
+<!-- Form View Template -->
+
+<odoo>
+    <record id="{VIEW_ID}_form" model="ir.ui.view">
+        <field name="name">{MODEL_NAME}.form</field>
+        <field name="model">{MODEL_NAME}</field>
+        <field name="arch" type="xml">
+            <form string="{MODEL_DESCRIPTION}">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <!-- Add left column fields -->
+                        </group>
+                        <group>
+                            <!-- Add right column fields -->
+                        </group>
+                    </group>
+                    
+                    <!-- Optional Notebook for tabs -->
+                    <!-- <notebook>
+                        <page string="Details">
+                            <group>
+                                <field name="description"/>
+                            </group>
+                        </page>
+                    </notebook> -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
